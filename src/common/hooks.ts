@@ -26,6 +26,7 @@ export const useFetch = <T>({
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    ref.current = true;
     if (ref.current) {
       (async () => {
         try {
