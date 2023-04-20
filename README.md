@@ -50,3 +50,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - Spent some time getting a custom hook to call external APIs since more than one place will be calling it
 - Implemented "infinite loading" so the users won't get bomboarded with a 100 images at a time
 - Implemented lazy loading as well in case images are slow
+- If I could sit down with the designer, I would need to go through what are the most important features and who the users are. The next step of this would be sitting in a design review session with this person.
