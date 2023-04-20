@@ -44,3 +44,9 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Technical Decisions
+- For the UI, I try to imitate as close to the instructions as possible, other than the searchbox.
+- Spent some time getting a custom hook to call external APIs since more than one place will be calling it
+- Implemented "infinite loading" so the users won't get bomboarded with a 100 images at a time
+- Implemented lazy loading as well in case images are slow
