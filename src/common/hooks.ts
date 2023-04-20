@@ -11,6 +11,12 @@ interface UseFetchReturn<T> {
   error: string | null;
 }
 
+interface UseFetchReturn<T> {
+  loading: boolean;
+  data: T | null;
+  error: string | null;
+}
+
 export const useFetch = <T>({
   url,
   ref,
