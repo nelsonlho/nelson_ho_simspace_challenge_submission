@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { useFetch } from '../../common/hooks';
+import { IMAGE_LIMIT, PLACEHOLDER_URL } from '../../common/constants';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 type ImageMessage = {
   message: string[];
@@ -18,7 +20,7 @@ const Images = ({ breed }: ImagesProps) => {
     ref,
   });
 
-  const [imageLimit, setImageLimit] = useState<number>(20);
+  const [imageLimit, setImageLimit] = useState<number>(IMAGE_LIMIT);
   const [imageLinks, setImageLinks] = useState<string[]>([]);
 
   useEffect(() => {
@@ -27,7 +29,9 @@ const Images = ({ breed }: ImagesProps) => {
     setImageLinks(imageUrls);
   }, [imageLimit, data]);
 
-  const handleClick = () => setImageLimit(imageLimit + 20);
+  useEffect(() => setImageLimit(IMAGE_LIMIT), [breed]);
+
+  const handleClick = () => setImageLimit(imageLimit + IMAGE_LIMIT);
 
   return (
     <>
@@ -35,14 +39,16 @@ const Images = ({ breed }: ImagesProps) => {
       {error ? 'Error loading images' : null}
       {!loading && data && imageLinks.length > 0 ? (
         <div className="flex flex-col">
+          <div className="font-bold self-center mt-8">
+            Images of <span className="capitalize">{breed}</span>
+          </div>
           <div className="container m-auto grid grid-cols-4 gap-4 my-8">
             {imageLinks.map((link, index) => (
               <div className="flex flex-col border border-black-300" key={link}>
-                <img
-                  alt="Getting Image"
+                <LazyLoadImage
                   className="w-full h-48 object-cover"
+                  placeholderSrc={PLACEHOLDER_URL}
                   src={link}
-                  loading="lazy"
                 />
                 <div className="text-center">{index + 1}</div>
               </div>

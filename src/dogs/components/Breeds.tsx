@@ -15,10 +15,10 @@ const Breeds = ({
       {breeds.length > 0 ? (
         breeds.map((breed, index) => (
           <div
-            className={`cursor-pointer capitalize bg-gray-200 justify-center text-center my-1 mx-4 p-4 ${
+            className={`cursor-pointer capitalize justify-center text-center my-1 mx-4 p-4 truncate ${
               currentSelectedBreed === breed
                 ? 'bg-blue-500 hover:bg-blue-400'
-                : 'hover:bg-gray-400'
+                : 'bg-gray-200 hover:bg-gray-400'
             }`}
             key={`${index}_${breed}`}
             onClick={() => handleClick(breed)}
@@ -27,7 +27,7 @@ const Breeds = ({
           </div>
         ))
       ) : (
-        <div>No breeds found</div>
+        <div>No breed matches found</div>
       )}
     </div>
   );

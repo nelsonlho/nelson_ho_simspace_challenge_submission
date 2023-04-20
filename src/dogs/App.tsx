@@ -37,18 +37,17 @@ function App() {
 
   return (
     <>
-      <div className="flex items-center justify-between flex-wrap my-2 mx-4">
-        <div>Dogs!</div>
-        <div>
-          <input
-            className="text-black border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 0"
-            placeholder="Search breed"
-            onChange={handleQueryChange}
-            value={query}
-          />
-        </div>
+      <div className="container m-auto grid grid-cols-2 gap-4 my-4 mx-10">
+        <div className="text-blue-800 text-lg">Dogs!</div>
+
+        <input
+          className="text-black border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2 ml-auto"
+          placeholder="Search breed"
+          onChange={handleQueryChange}
+          value={query}
+        />
       </div>
-      <div>
+      <div className="flex flex-col">
         {loading ? 'Loading...' : null}
         {error ? 'An error has occurred' : null}
         {!loading && !error && breeds ? (
